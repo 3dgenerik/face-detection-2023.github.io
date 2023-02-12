@@ -22,6 +22,7 @@ const svgVariants = {
 
 export const Logo: React.FC = () => {
     const [isOn, setIsOn] = useState<boolean>(false)
+    
     return(
         <Tilt scale={1.1} transitionSpeed={1500} perspective={100}>
             <motion.div
