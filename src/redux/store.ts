@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
-import inputFormReducer from '../components/inputForm/inputForm.slice'
-import imageAndInfoHandlerReducer from '../components/imageAndInfoHandler/imageAndInfoHandler.slice'
+import inputFormReducer from '../features/inputForm/inputForm.slice'
+import imageAndInfoHandlerReducer from '../features/imageAndInfoHandler/imageAndInfoHandler.slice'
 
 
 export const store = configureStore({
