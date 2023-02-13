@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Tilt from 'react-parallax-tilt'
 import {motion} from 'framer-motion'
+import { GiBrain } from "react-icons/gi";
 
 
 const svgVariants = {
@@ -22,16 +23,17 @@ const svgVariants = {
 
 export const Logo: React.FC = () => {
     const [isOn, setIsOn] = useState<boolean>(false)
-    
+
     return(
         <Tilt scale={1.1} transitionSpeed={1500} perspective={100}>
             <motion.div
                 variants={svgVariants}
                 initial="initial"
                 animate="animate"
-                style = {{width:'70px', height:'70px'}}
+                style = {{width:'60px', height:'70px'}}
                 >
-                <img className = 'mw-100' src="assets/brain-svgrepo-com.svg" alt = 'brain'/>
+                {/* <img className = 'mw-100' src="assets/brain-svgrepo-com.svg" alt = 'brain'/> */}
+                <GiBrain className="w-100 h-100 text-light"/>
             </motion.div>
         </Tilt>
     )
