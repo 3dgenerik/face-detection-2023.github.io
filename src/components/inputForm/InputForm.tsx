@@ -2,24 +2,22 @@ import React, {useState} from 'react'
 import Form from 'react-bootstrap/Form';
 import {InputGroup, Button} from 'react-bootstrap';
 import { BsFillImageFill } from "react-icons/bs";
+import { useAppDispatch } from '../../store/hooks';
+import { addUrl } from './inputForm.slice';
+import { setImageError } from '../imageAndInfoHandler/imageAndInfoHandler.slice';
+import { ImageAndInfoHandler } from '../imageAndInfoHandler/ImageAndInfoHandler';
 
 export const InputForm: React.FC  = () => {
-    const [inputUrl, setInputUrl] = useState<string>('')
-    const [imgError, setImgError] = useState<boolean>(false)
+    
+    const dispatch = useAppDispatch()
+
 
     const onInputTextChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
-        setInputUrl(e.currentTarget.value)
-        setImgError(false)
-    }
 
-    const imageOnErrorHandler = (
-        event: React.SyntheticEvent<HTMLImageElement, Event>
-      ) => {
-        // event.currentTarget.src = FALLBACK_IMAGE;
-        // event.currentTarget.className = "error";
-        setImgError(true)
-      };
+        dispatch(addUrl(e.currentTarget.value))
+        dispatch(setImageError(false))
+    }
 
 
     return(
@@ -36,29 +34,8 @@ export const InputForm: React.FC  = () => {
                 <Button className = 'px-5' variant="primary" id="button-addon2">Detect</Button>
             </InputGroup>
             
-            {/* Napraviti posebnu komponentu */}
-
-            {
-
-                <div className = {`${imgError ? 'bg-danger border-danger' : 'bg-light'} bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
-                    {
-                        inputUrl
-                        ?
-                        !imgError
-                            ?
-                            <img
-                                className='w-100' 
-                                src = {inputUrl} 
-                                alt='image' 
-                                onError={imageOnErrorHandler}
-                            />
-                            :
-                            <div className='text-danger fw-bold'>Oops, wrong url. Please use correct one.</div>
-                        :
-                        <div className='text-secondary fw-bold'>Field is empty.</div>
-                    }
-                </div>
-            }
+            <ImageAndInfoHandler/>
+            
         </div>
 
     )
