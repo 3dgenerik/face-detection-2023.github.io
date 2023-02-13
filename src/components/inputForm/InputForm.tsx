@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Form from 'react-bootstrap/Form';
 import {InputGroup, Button} from 'react-bootstrap';
 import { BsFillImageFill } from "react-icons/bs";
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch } from '../../redux/hooks';
 import { addUrl } from './inputForm.slice';
 import { setImageError } from '../imageAndInfoHandler/imageAndInfoHandler.slice';
 import { ImageAndInfoHandler } from '../imageAndInfoHandler/ImageAndInfoHandler';
@@ -14,7 +14,6 @@ export const InputForm: React.FC  = () => {
 
     const onInputTextChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
-
         dispatch(addUrl(e.currentTarget.value))
         dispatch(setImageError(false))
     }
@@ -33,7 +32,7 @@ export const InputForm: React.FC  = () => {
                 />
                 <Button className = 'px-5' variant="primary" id="button-addon2">Detect</Button>
             </InputGroup>
-            
+
             <ImageAndInfoHandler/>
             
         </div>

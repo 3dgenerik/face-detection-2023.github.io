@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { rootState } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { rootState } from "../../redux/store";
 import { setImageError } from "./imageAndInfoHandler.slice";
 
 
