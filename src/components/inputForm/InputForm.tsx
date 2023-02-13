@@ -23,10 +23,11 @@ export const InputForm: React.FC  = () => {
 
 
     return(
-        <>
-            <InputGroup className="mb-3 container mt-5">
+        <div style={{maxWidth:'1000px'}} className = 'm-auto p-3'>
+            <InputGroup className="mb-3 mt-3 ">
                 <InputGroup.Text className = 'p-3' id="basic-addon1"><BsFillImageFill /></InputGroup.Text>
                 <Form.Control
+                className = 'text-dark text-opacity-50'
                 onChange={onInputTextChange}
                 placeholder="...put image link here"
                 aria-label="image"
@@ -36,21 +37,29 @@ export const InputForm: React.FC  = () => {
             </InputGroup>
             
             {/* Napraviti posebnu komponentu */}
-            <div className = 'm-3 bg-light p-3 mt-4 shadow-sm border border'>
-                {
-                    inputUrl && !imgError
-                    ?
-                    <img
-                        className='w-100' 
-                        src = {inputUrl} 
-                        alt='image' 
-                        onError={imageOnErrorHandler}
-                        />
-                    :
-                    <div className='text-danger fw-bold'>Oops, wrong url. Please use correct one.</div>
-                }
-            </div>
-        </>
+
+            {
+
+                <div className = {`${imgError ? 'bg-danger border-danger' : 'bg-light'} bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
+                    {
+                        inputUrl
+                        ?
+                        !imgError
+                            ?
+                            <img
+                                className='w-100' 
+                                src = {inputUrl} 
+                                alt='image' 
+                                onError={imageOnErrorHandler}
+                            />
+                            :
+                            <div className='text-danger fw-bold'>Oops, wrong url. Please use correct one.</div>
+                        :
+                        <div className='text-secondary fw-bold'>Field is empty.</div>
+                    }
+                </div>
+            }
+        </div>
 
     )
 }
