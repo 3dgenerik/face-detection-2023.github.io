@@ -1,14 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit'
 import inputFormReducer from '../features/inputForm/inputForm.slice'
 import imageAndInfoHandlerReducer from '../features/imageAndInfoHandler/imageAndInfoHandler.slice'
-import getButtonName from '../features/inputForm/button.slice'
+import buttonReducer from '../features/buttonForm/button.slice'
+ 
 
 
 export const store = configureStore({
     reducer:{
         inputForm: inputFormReducer,
         imgError: imageAndInfoHandlerReducer,
-        btnName: getButtonName
+        faceDetectionInfo: buttonReducer
     }
 })
 
