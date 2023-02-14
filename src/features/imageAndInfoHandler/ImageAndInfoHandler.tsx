@@ -8,8 +8,8 @@ interface IImageAndInfoHandler{
 }
 
 export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
+    const {isLoaded, regions, error} = useAppSelector((state:rootState) => state.faceDetectionInfo)
     const {imgLoadingError} = useAppSelector((state:rootState) => state.imgError)
-    const {regions} = useAppSelector((state:rootState) => state.faceDetectionInfo)
 
     const dispatch = useAppDispatch()
 
@@ -19,25 +19,29 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
         dispatch(setImageError(true))
       };
 
-    // console.log(regions[0]?.region_info.bounding_box)
+    console.log(regions)
 
     return (
             <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
                 {
                     url
-                    ?
-                    !imgLoadingError
                         ?
-                        <img
-                            className='w-100' 
-                            src = {url} 
-                            alt='image' 
-                            onError={imageOnErrorHandler}
-                        />
+                        !imgLoadingError
+                            ?
+                            isLoaded
+                                ?
+                                <p>...loading</p>
+                                :
+                                <img
+                                    className='w-100' 
+                                    src = {url}
+                                    alt='image' 
+                                    onError={imageOnErrorHandler}
+                                />
+                            :
+                            <div className='text-danger fw-bold'>Oops, wrong url. Please use correct one.</div>
                         :
-                        <div className='text-danger fw-bold'>Oops, wrong url. Please use correct one.</div>
-                    :
-                    <div className='text-secondary fw-bold'>Field is empty.</div>
+                        <div className='text-secondary fw-bold'>Field is empty.</div>
                 }
             </div>
     )

@@ -1,14 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IFaceDetectionData } from "./button.interface";
 import { IRegions } from "./button.interface";
 
 
 interface IInitialstate {
-    regions: IRegions[]
+    isLoaded: boolean,
+    regions: IRegions[],
+    error: string
 }
 
 const initialState: IInitialstate = {
-    regions:[]  
+    isLoaded: false,
+    regions:[],
+    error: '' 
 } 
 
 
@@ -16,11 +19,20 @@ const buttonSlice = createSlice({
     name: 'detectionFaceButton',
     initialState, 
     reducers:{
-        getFaceDetectionInfo: ((state:IInitialstate, action: PayloadAction<IRegions[]>) => {
+        getFaceDetectionInfoPending: ((state:IInitialstate, action: PayloadAction<string>) => {
+            state.isLoaded = true
+        }),
+        getFaceDetectionInfoFullfiled: ((state:IInitialstate, action: PayloadAction<IRegions[]>) => {
+            state.isLoaded = false
             state.regions = action.payload
         }),
+        getFaceDetectionInfoRejected: ((state:IInitialstate, action: PayloadAction<string>) => {
+            state.isLoaded = false
+            state.regions = []
+            state.error = action.payload
+        })
     }
 })
 
 export default buttonSlice.reducer
-export const {getFaceDetectionInfo} = buttonSlice.actions
+export const {getFaceDetectionInfoPending, getFaceDetectionInfoFullfiled, getFaceDetectionInfoRejected} = buttonSlice.actions
