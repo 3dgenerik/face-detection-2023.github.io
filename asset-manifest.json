@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/face-detection-2023.github.io/static/css/main.e6c13ad2.css",
-    "main.js": "/face-detection-2023.github.io/static/js/main.10ae37bf.js",
+    "main.js": "/face-detection-2023.github.io/static/js/main.f316b3de.js",
     "index.html": "/face-detection-2023.github.io/index.html",
     "main.e6c13ad2.css.map": "/face-detection-2023.github.io/static/css/main.e6c13ad2.css.map",
-    "main.10ae37bf.js.map": "/face-detection-2023.github.io/static/js/main.10ae37bf.js.map"
+    "main.f316b3de.js.map": "/face-detection-2023.github.io/static/js/main.f316b3de.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.10ae37bf.js"
+    "static/js/main.f316b3de.js"
   ]
 }
