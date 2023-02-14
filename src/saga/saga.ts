@@ -16,7 +16,6 @@ interface IResponseGenerator {
 
 
 const fetchData = (url:string, image_url:string) => {
-
     const bodyData = {
         user_app_id: {
             user_id: constants.USER_ID,
@@ -39,7 +38,6 @@ const fetchData = (url:string, image_url:string) => {
             Authorization: 'Key ' + constants.PAT
         },
     })
-
 }
 
 function* workedGetFaceDetectionRegions(action: {type: string, payload: string}){
