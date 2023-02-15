@@ -30,9 +30,13 @@ const buttonSlice = createSlice({
             state.isLoaded = false
             state.regions = []
             state.error = action.payload
+        }),
+        clearRegions: ((state:IInitialstate) => {
+            state.isLoaded = false
+            state.regions = []
         })
     }
 })
 
 export default buttonSlice.reducer
-export const {getFaceDetectionInfoPending, getFaceDetectionInfoFullfiled, getFaceDetectionInfoRejected} = buttonSlice.actions
+export const {getFaceDetectionInfoPending, getFaceDetectionInfoFullfiled, getFaceDetectionInfoRejected, clearRegions} = buttonSlice.actions
