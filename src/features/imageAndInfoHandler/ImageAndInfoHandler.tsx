@@ -33,7 +33,7 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
     })
 
     return (
-            <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} ${isLoaded ? 'bg-primary border-primary' : 'bg-light'} d-flex justify-content-center align-items-center bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
+            <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} d-flex justify-content-center align-items-center bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
                 {
                     url
                         ?
@@ -41,7 +41,7 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
                             ?
                             isLoaded
                                 ?
-                                <div className='text-primary fw-bold'>...finding region(s)</div>
+                                <div className='text-secondary fw-bold'>...finding region(s)</div>
                                 :
                                 <>
                                     <div style = {{position:'relative'}}>
