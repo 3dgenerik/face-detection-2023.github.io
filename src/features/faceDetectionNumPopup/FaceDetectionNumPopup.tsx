@@ -33,8 +33,8 @@ export const FaceDetectionNumPopup: React.FC<IFaceDetectionNumPopupProps> = ({re
         <motion.div
             variants={variant}
             animate = {(isPopedUp&&regionNum>0) ? "end" : "start"}
-            style = {{position:'fixed', left:'20px', bottom: '20px'}}
-            className='p-2 border bg-warning border-warning rounded-3 bg-opacity-25 text-secondary'
+            style = {{position:'fixed', left:'20px', bottom: '20px', backgroundColor:'#ffedb3', color:'#bb8f00'}}
+            className='p-2 border border-warning rounded-3'
             >There are <span className = 'fw-bold'>{regionNum}</span> face(s) detected.
         </motion.div>
     )
