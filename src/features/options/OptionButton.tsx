@@ -20,7 +20,7 @@ export const OptionButton: React.FC<IOptionButton> = ({children, btnName, option
     }
 
     return (
-        <div onClick={() => onOptionChange(optionName)} className='d-flex align-items-center bg-light py-1 rounded-3'>
+        <div onClick={() => onOptionChange(optionName)} className='d-flex align-items-center bg-light py-1 rounded-3' role="button">
             <div style = {{backgroundColor:'#fff'}} className=' border rounded-2 p-1 mx-1'>
                 {children}
             </div>

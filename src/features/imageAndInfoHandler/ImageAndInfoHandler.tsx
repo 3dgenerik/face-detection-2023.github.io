@@ -23,7 +23,6 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
         dispatch(setImageError(true))
       };
     
-    console.log('xxxxx: ', optionSelection.length);
     
     return (
             <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} d-flex justify-content-center align-items-center bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
@@ -45,7 +44,7 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
                                             onError={imageOnErrorHandler}
                                         />
                                         {
-                                            detectionOption===constants.FACE_DETECTION
+                                            detectionOption===constants.FACE_DETECTION && optionSelection
                                                 ?
                                                 <BoundingBoxesWrapper optionSelection={optionSelection as IRegions[]}/>
                                                 :

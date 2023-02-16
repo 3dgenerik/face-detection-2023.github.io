@@ -11,7 +11,6 @@ import { rootState } from '../../redux/store';
 import { clearRegions } from '../buttonForm/button.slice';
 import { OptionDetectionNumPopup } from '../faceDetectionNumPopup/OptionDetectionNumPopup';
 import { setIsPopedUp } from '../faceDetectionNumPopup/optionDetectionNumPopup.slice';
-import { constants } from '../../constants';
 
 
 
@@ -30,7 +29,6 @@ export const InputForm: React.FC  = () => {
         dispatch(setIsPopedUp(false))
     }
 
-
     return(
         <div style={{maxWidth:'1000px'}} className = 'm-auto p-3'>
             <InputGroup className="mb-3 mt-3 ">
@@ -45,9 +43,9 @@ export const InputForm: React.FC  = () => {
                 <ButtonForm url = {inputUrl}/>
             </InputGroup>
             <ImageAndInfoHandler url = {inputUrl}/>
-            
-            <OptionDetectionNumPopup selectionNum={optionSelection.length}/>
-            
+            {
+            optionSelection && <OptionDetectionNumPopup selectionNum={optionSelection.length}/>
+            }
         </div>
 
     )
