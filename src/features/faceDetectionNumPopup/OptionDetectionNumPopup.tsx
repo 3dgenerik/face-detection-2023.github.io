@@ -3,8 +3,8 @@ import {motion} from 'framer-motion'
 import { useAppSelector } from '../../redux/hooks'
 import { rootState } from '../../redux/store'
 
-interface IFaceDetectionNumPopupProps{
-    regionNum: number
+interface IOptionDetectionNumPopupProps{
+    selectionNum: number
 }
 
 const variant = {
@@ -27,15 +27,15 @@ const variant = {
     }
 }
 
-export const FaceDetectionNumPopup: React.FC<IFaceDetectionNumPopupProps> = ({regionNum}) => {
+export const OptionDetectionNumPopup: React.FC<IOptionDetectionNumPopupProps> = ({selectionNum}) => {
     const {isPopedUp} = useAppSelector((state:rootState) => state.faceDetectionNumPopupBool)
     return (
         <motion.div
             variants={variant}
-            animate = {(isPopedUp&&regionNum>0) ? "end" : "start"}
+            animate = {(isPopedUp&&selectionNum>0) ? "end" : "start"}
             style = {{position:'fixed', left:'20px', bottom: '20px', backgroundColor:'#ffedb3', color:'#bb8f00'}}
             className='p-2 border border-warning rounded-3'
-            >There are <span className = 'fw-bold'>{regionNum}</span> face(s) detected.
+            >There are <span className = 'fw-bold'>{selectionNum}</span> face(s) detected.
         </motion.div>
     )
 }

@@ -1,8 +1,10 @@
 import {takeEvery, all, call, put} from 'redux-saga/effects'
 import { getFaceDetectionInfoPending, getFaceDetectionInfoFullfiled, getFaceDetectionInfoRejected } from '../features/buttonForm/button.slice'
-import { constants } from '../constants'
 import { IFaceDetectionData } from '../features/buttonForm/button.interface';
-import axios from 'axios'
+import { clarifai } from '../constants';
+import { fetchDetectionData } from './fetchDetectionData';
+import { IDetectionInput } from '../features/buttonForm/button.slice';
+import { constants } from '../constants';
 
 
 interface IResponseGenerator {
@@ -15,37 +17,14 @@ interface IResponseGenerator {
 }
 
 
-const fetchData = (url:string, image_url:string) => {
-    const bodyData = {
-        user_app_id: {
-            user_id: constants.USER_ID,
-            app_id: constants.APP_ID
-        },
-        inputs: [
-            {
-                data: {
-                    image: {
-                        url: image_url
-                    }
-                }
-            }
-        ]
-    }
-
-    return axios.post(url, bodyData, {
-        headers: {
-            Accept: "application/json",
-            Authorization: 'Key ' + constants.PAT
-        },
-    })
-}
-
-function* workedGetFaceDetectionRegions(action: {type: string, payload: string}){
-    const IMAGE_URL = action.payload;
+function* workedGetFaceDetectionRegions(action: {type: string, payload: IDetectionInput}){
+    const IMAGE_URL = action.payload.url
+    const OPTION_DETECTION = action.payload.detectOption as constants
     try{
-        const clarifaiModelPath = "https://api.clarifai.com/v2/models/" + constants.MODEL_ID + "/versions/" + constants.MODEL_VERSION_ID + "/outputs"
-        const response:IResponseGenerator = yield call(fetchData, clarifaiModelPath, IMAGE_URL)
-        yield put(getFaceDetectionInfoFullfiled(response.data.outputs[0].data.regions))
+        const clarifaiModelPath = "https://api.clarifai.com/v2/models/" + clarifai[OPTION_DETECTION].MODEL_ID + "/versions/" + clarifai[OPTION_DETECTION].MODEL_VERSION_ID + "/outputs"
+        const response:IResponseGenerator = yield call(fetchDetectionData, clarifaiModelPath, IMAGE_URL, clarifai.USER_ID, clarifai[OPTION_DETECTION].APP_ID, clarifai.PAT)
+        console.log(response.data);
+        yield put(getFaceDetectionInfoFullfiled(response.data.outputs[0].data))
     }catch(error){
         yield put(getFaceDetectionInfoRejected('Something went wrong'))
     }

@@ -8,8 +8,8 @@ const initialState = {
     isPopedUp: false
 }
 
-const faceDetectionNumPopupSlice = createSlice({
-    name: 'faceDetectionNumPopup',
+const optionDetectionNumPopupSlice = createSlice({
+    name: 'optionDetectionNumPopup',
     initialState,
     reducers:{
         setIsPopedUp: ((state:IInitialstate, action: PayloadAction<boolean>)=>{
@@ -18,5 +18,5 @@ const faceDetectionNumPopupSlice = createSlice({
     }
 })
 
-export default faceDetectionNumPopupSlice.reducer
-export const {setIsPopedUp} = faceDetectionNumPopupSlice.actions
+export default optionDetectionNumPopupSlice.reducer
+export const {setIsPopedUp} = optionDetectionNumPopupSlice.actions

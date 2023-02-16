@@ -7,13 +7,24 @@ export interface IRegions{
             top_row: number
         } 
     }            
-    
 }
 
- interface IOutputs{
-    data: {
-        regions: IRegions[]
-    },
+export interface IColors{
+    raw_hex: string,
+    value: number,
+    w3c:{
+       hex: string,
+       name: string 
+    }          
+}
+
+export interface  IData{
+    regions: IRegions[],
+    colors: IColors[]    
+}
+
+ export interface IOutputs{
+    data: IData,
     input:{
         data:{
             image:{

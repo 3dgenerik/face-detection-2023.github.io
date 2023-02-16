@@ -1,39 +1,53 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IRegions } from "./button.interface";
+import {IData } from "./button.interface";
+import { constants } from "../../constants";
 
 
 interface IInitialstate {
     isLoaded: boolean,
-    regions: IRegions[],
+    optionSelection: IData
     error: string
 }
 
 const initialState: IInitialstate = {
     isLoaded: false,
-    regions:[],
+    optionSelection: {
+        regions: [],
+        colors: []
+    },
     error: '' 
 } 
 
+export interface IDetectionInput{
+    url: string,
+    detectOption: constants
+}
 
 const buttonSlice = createSlice({
     name: 'detectionFaceButton',
     initialState, 
     reducers:{
-        getFaceDetectionInfoPending: ((state:IInitialstate, action: PayloadAction<string>) => {
+        getFaceDetectionInfoPending: ((state:IInitialstate, action: PayloadAction<IDetectionInput>) => {
             state.isLoaded = true
         }),
-        getFaceDetectionInfoFullfiled: ((state:IInitialstate, action: PayloadAction<IRegions[]>) => {
+        getFaceDetectionInfoFullfiled: ((state:IInitialstate, action: PayloadAction<IData>) => {
             state.isLoaded = false
-            state.regions = action.payload
+            state.optionSelection = action.payload
         }),
         getFaceDetectionInfoRejected: ((state:IInitialstate, action: PayloadAction<string>) => {
             state.isLoaded = false
-            state.regions = []
+            state.optionSelection = {
+                    regions: [],
+                    colors: []
+                }
             state.error = action.payload
         }),
         clearRegions: ((state:IInitialstate) => {
             state.isLoaded = false
-            state.regions = []
+            state.optionSelection = {
+                regions: [],
+                colors: []
+            }
         })
     }
 })

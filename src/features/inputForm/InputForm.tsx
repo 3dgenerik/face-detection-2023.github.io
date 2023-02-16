@@ -9,13 +9,13 @@ import { ImageAndInfoHandler } from '../imageAndInfoHandler/ImageAndInfoHandler'
 import { ButtonForm } from '../buttonForm/ButtonForm';
 import { rootState } from '../../redux/store';
 import { clearRegions } from '../buttonForm/button.slice';
-import { FaceDetectionNumPopup } from '../faceDetectionNumPopup/FaceDetectionNumPopup';
-import { setIsPopedUp } from '../faceDetectionNumPopup/faceDetectionNumPopup.slice';
+import { OptionDetectionNumPopup } from '../faceDetectionNumPopup/OptionDetectionNumPopup';
+import { setIsPopedUp } from '../faceDetectionNumPopup/optionDetectionNumPopup.slice';
 
 
 export const InputForm: React.FC  = () => {
     const {inputUrl} = useAppSelector((state:rootState) => state.inputForm)
-    const {regions} = useAppSelector((state:rootState) => state.faceDetectionInfo)
+    const {regions, colors} = useAppSelector((state:rootState) => state.faceDetectionInfo.optionSelection)
 
     const dispatch = useAppDispatch()
 
@@ -42,7 +42,7 @@ export const InputForm: React.FC  = () => {
                 <ButtonForm url = {inputUrl}/>
             </InputGroup>
             <ImageAndInfoHandler url = {inputUrl}/>
-            <FaceDetectionNumPopup regionNum={regions.length}/>
+            <OptionDetectionNumPopup selectionNum={regions.length}/>
         </div>
 
     )

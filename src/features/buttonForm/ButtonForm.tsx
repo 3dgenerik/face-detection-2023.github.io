@@ -2,7 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { getFaceDetectionInfoPending } from "./button.slice";
 import { useAppDispatch} from "../../redux/hooks";
-import { setIsPopedUp } from "../faceDetectionNumPopup/faceDetectionNumPopup.slice";
+import { setIsPopedUp } from "../faceDetectionNumPopup/optionDetectionNumPopup.slice";
+import { constants } from "../../constants";
 
 interface IButtonFormProp{
     url: string
@@ -14,7 +15,7 @@ export const ButtonForm: React.FC<IButtonFormProp> = ({url}) => {
 
     const onBtnClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
-        dispatch(getFaceDetectionInfoPending(url))
+        dispatch(getFaceDetectionInfoPending({url, detectOption:constants.FACE_DETECTION}))
         dispatch(setIsPopedUp(true))
     }
 
