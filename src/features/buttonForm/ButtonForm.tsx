@@ -3,8 +3,8 @@ import { Button } from "react-bootstrap";
 import { getFaceDetectionInfoPending } from "./button.slice";
 import { useAppDispatch, useAppSelector} from "../../redux/hooks";
 import { setIsPopedUp } from "../faceDetectionNumPopup/optionDetectionNumPopup.slice";
-import { constants } from "../../constants";
 import { rootState } from "../../redux/store";
+import { clearRegions } from "./button.slice";
 
 interface IButtonFormProp{
     url: string
@@ -25,7 +25,7 @@ export const ButtonForm: React.FC<IButtonFormProp> = ({url}) => {
     return(
         <Button
             onClick={onBtnClick} 
-            className = 'px-5' 
+            className = 'px-3 px-sm-5' 
             variant="primary" 
             id="button-addon2"
             >Detect</Button>

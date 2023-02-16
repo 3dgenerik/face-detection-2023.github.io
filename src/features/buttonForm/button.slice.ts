@@ -6,13 +6,16 @@ import { IRegions, IColors } from "./button.interface";
 
 interface IInitialstate {
     isLoaded: boolean,
-    optionSelection: IRegions[] | IColors[]
+    optionSelection: IData
     error: string
 }
 
 const initialState: IInitialstate = {
     isLoaded: false,
-    optionSelection: [],
+    optionSelection: {
+        regions: [],
+        colors: []  
+    },
     error: '' 
 } 
 
@@ -28,18 +31,24 @@ const buttonSlice = createSlice({
         getFaceDetectionInfoPending: ((state:IInitialstate, action: PayloadAction<IDetectionInput>) => {
             state.isLoaded = true
         }),
-        getFaceDetectionInfoFullfiled: ((state:IInitialstate, action: PayloadAction<IRegions[] | IColors[]>) => {
+        getFaceDetectionInfoFullfiled: ((state:IInitialstate, action: PayloadAction<IData>) => {
             state.isLoaded = false
             state.optionSelection = action.payload
         }),
         getFaceDetectionInfoRejected: ((state:IInitialstate, action: PayloadAction<string>) => {
             state.isLoaded = false
-            state.optionSelection = []
+            state.optionSelection = {
+                regions: [],
+                colors: []  
+            }
             state.error = action.payload
         }),
         clearRegions: ((state:IInitialstate) => {
             state.isLoaded = false
-            state.optionSelection = []
+            state.optionSelection = {
+                regions: [],
+                colors: []  
+            }
         })
     }
 })

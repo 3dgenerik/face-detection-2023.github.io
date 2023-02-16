@@ -11,12 +11,14 @@ import { rootState } from '../../redux/store';
 import { clearRegions } from '../buttonForm/button.slice';
 import { OptionDetectionNumPopup } from '../faceDetectionNumPopup/OptionDetectionNumPopup';
 import { setIsPopedUp } from '../faceDetectionNumPopup/optionDetectionNumPopup.slice';
+import { constants } from '../../constants';
 
 
 
 export const InputForm: React.FC  = () => {
     const {inputUrl} = useAppSelector((state:rootState) => state.inputForm)
     const {optionSelection} = useAppSelector((state:rootState) => state.faceDetectionInfo)
+    const {detectionOption} = useAppSelector((state:rootState) => state.option)
 
     const dispatch = useAppDispatch()
 
@@ -31,8 +33,8 @@ export const InputForm: React.FC  = () => {
 
     return(
         <div style={{maxWidth:'1000px'}} className = 'm-auto p-3'>
-            <InputGroup className="mb-3 mt-3 ">
-                <InputGroup.Text className = 'p-3' id="basic-addon1"><BsFillImageFill /></InputGroup.Text>
+            <InputGroup className="mb-5 mb-sm-3 mt-3 ">
+                <InputGroup.Text className = 'p-3 p-sm-3' id="basic-addon1"><BsFillImageFill /></InputGroup.Text>
                 <Form.Control
                 className = 'text-dark text-opacity-50'
                 onChange={onInputTextChange}
@@ -43,9 +45,17 @@ export const InputForm: React.FC  = () => {
                 <ButtonForm url = {inputUrl}/>
             </InputGroup>
             <ImageAndInfoHandler url = {inputUrl}/>
+
+            {/* FIX THIS */}
             {
-            optionSelection && <OptionDetectionNumPopup selectionNum={optionSelection.length}/>
+                (detectionOption === constants.FACE_DETECTION && optionSelection.regions && optionSelection.regions.length > 0)
+                ?
+                <OptionDetectionNumPopup selectionNum={optionSelection.regions.length} option = "face(s)"/>
+                :
+                optionSelection.colors && <OptionDetectionNumPopup selectionNum={optionSelection.colors.length} option = "color(s)"/>
             }
+
+            
         </div>
 
     )

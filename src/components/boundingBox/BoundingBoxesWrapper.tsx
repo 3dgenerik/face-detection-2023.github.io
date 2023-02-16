@@ -1,14 +1,14 @@
 import React from 'react'
-import { IRegions, IColors } from '../../features/buttonForm/button.interface'
+import { IRegions } from '../../features/buttonForm/button.interface'
 import { BoundingBox } from './BoundingBox'
 
 interface IBoundingBoxesWrapperProps{
-    optionSelection: IRegions[]
+    regions: IRegions[]
 }
 
-export const BoundingBoxesWrapper: React.FC<IBoundingBoxesWrapperProps> = ({optionSelection}) => {
+export const BoundingBoxesWrapper: React.FC<IBoundingBoxesWrapperProps> = ({regions}) => {
 
-    const boundingBoxes = optionSelection.map((region:IRegions, idx:number) =>{
+    const boundingBoxes = regions.map((region:IRegions, idx:number) =>{
         const top_row = region.region_info.bounding_box.top_row * 100
         const left_col = region.region_info.bounding_box.left_col * 100
         const right_col = (1.0 - region.region_info.bounding_box.right_col) * 100
@@ -16,7 +16,7 @@ export const BoundingBoxesWrapper: React.FC<IBoundingBoxesWrapperProps> = ({opti
 
         return <BoundingBox
             key = {idx} 
-            regionsLength = {optionSelection.length} 
+            regionsLength = {regions.length} 
             idx={idx} 
             top_row = {top_row} 
             left_col = {left_col} 
