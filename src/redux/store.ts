@@ -2,6 +2,7 @@ import {configureStore} from '@reduxjs/toolkit'
 import inputFormReducer from '../features/inputForm/inputForm.slice'
 import imageAndInfoHandlerReducer from '../features/imageAndInfoHandler/imageAndInfoHandler.slice'
 import getFaceDetectionInfoReducer from '../features/buttonForm/button.slice'
+import optionsReducer from '../features/options/options.slice'
 import faceDetectionNumPopupReducer from '../features/faceDetectionNumPopup/optionDetectionNumPopup.slice'
 import createSagaMiddleware from '@redux-saga/core'
 import rootSaga from '../saga/saga'
@@ -13,7 +14,8 @@ export const store = configureStore({
         inputForm: inputFormReducer,
         imgError: imageAndInfoHandlerReducer,
         faceDetectionInfo: getFaceDetectionInfoReducer,
-        faceDetectionNumPopupBool: faceDetectionNumPopupReducer
+        faceDetectionNumPopupBool: faceDetectionNumPopupReducer,
+        option: optionsReducer
     },
     middleware: (defaultMiddleware) => defaultMiddleware().concat(saga)
 })

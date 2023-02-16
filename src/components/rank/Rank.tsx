@@ -2,10 +2,10 @@ import React from "react";
 
 export const Rank: React.FC = () => {
     return(
-        <div className="text-center mt-5">
-            <p className='display-6'>
-                Jovica, your current rank is <span className='text-primary fw-bold'>#5</span>
-            </p>
+        <div className="text-center">
+            <div className='text-light'>
+                Hi Jovica, your current rank is <span style = {{color: '#22bbff'}} className='fw-bold'>#5</span>
+            </div>
         </div>
     )
 }

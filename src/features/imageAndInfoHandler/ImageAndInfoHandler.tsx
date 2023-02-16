@@ -3,6 +3,9 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { rootState } from "../../redux/store";
 import { setImageError } from "./imageAndInfoHandler.slice";
 import { BoundingBoxesWrapper } from "../../components/boundingBox/BoundingBoxesWrapper";
+import { IRegions } from "../buttonForm/button.interface";
+import { constants } from "../../constants";
+import { clearRegions } from "../buttonForm/button.slice";
 
 interface IImageAndInfoHandler{
     url: string
@@ -10,6 +13,8 @@ interface IImageAndInfoHandler{
 
 export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
     const {isLoaded, optionSelection, error} = useAppSelector((state:rootState) => state.faceDetectionInfo)
+    const {detectionOption} = useAppSelector((state:rootState) => state.option)
+
     const {imgLoadingError} = useAppSelector((state:rootState) => state.imgError)
 
     const dispatch = useAppDispatch()
@@ -17,7 +22,9 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
     const imageOnErrorHandler = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
         dispatch(setImageError(true))
       };
-
+    
+    console.log('xxxxx: ', optionSelection.length);
+    
     return (
             <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} d-flex justify-content-center align-items-center bg-opacity-25 p-3 mt-4 shadow-sm border rounded-2`}>
                 {
@@ -37,7 +44,14 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
                                             alt='image' 
                                             onError={imageOnErrorHandler}
                                         />
-                                        <BoundingBoxesWrapper optionSelection={optionSelection}/>
+                                        {
+                                            detectionOption===constants.FACE_DETECTION
+                                                ?
+                                                <BoundingBoxesWrapper optionSelection={optionSelection as IRegions[]}/>
+                                                :
+                                                detectionOption===constants.COLOR_DETECTION && <div>COLOR</div>
+                                                    
+                                        }
                                     </div>
                                 </>
                             :
