@@ -28,7 +28,8 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
                 </div>
                 <div className=''>
 
-                    <AiFillCopy className='btn btn-outline-secondary ms-3 border p-3 rounded-3 shadow-sm' size = {48}/>
+                    <AiFillCopy
+                        className='btn btn-outline-light ms-3 border p-3 rounded-3' size = {48} color={"#777"}/>
                 </div>
             </div>
         )
