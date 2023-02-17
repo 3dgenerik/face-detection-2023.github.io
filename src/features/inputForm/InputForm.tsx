@@ -12,7 +12,26 @@ import { clearRegions } from '../buttonForm/button.slice';
 import { OptionDetectionNumPopup } from '../faceDetectionNumPopup/OptionDetectionNumPopup';
 import { setIsPopedUp } from '../faceDetectionNumPopup/optionDetectionNumPopup.slice';
 import { constants } from '../../constants';
+import {motion} from 'framer-motion'
 
+
+const variants = {
+    initial: {
+        marginTop:50,
+        opacity:0,
+    },
+
+    animate: {
+        marginTop:0,
+        opacity:1,
+        transition: {
+            duration: .6,
+            type:"spring",
+            stiffness:200,
+            delay:.4
+        }
+    }
+}
 
 
 export const InputForm: React.FC  = () => {
@@ -32,7 +51,12 @@ export const InputForm: React.FC  = () => {
     }
 
     return(
-        <div style={{maxWidth:'1000px'}} className = 'm-auto p-3'>
+        <motion.div
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            style={{maxWidth:'1000px', margin: 'auto', marginTop: "0px"}}
+            className = 'p-3'>
             <InputGroup className="mb-5 mb-sm-3 mt-3 ">
                 <InputGroup.Text className = 'p-3 p-sm-3' id="basic-addon1"><BsFillImageFill /></InputGroup.Text>
                 <Form.Control
@@ -56,7 +80,7 @@ export const InputForm: React.FC  = () => {
             }
 
             
-        </div>
+        </motion.div>
 
     )
 }

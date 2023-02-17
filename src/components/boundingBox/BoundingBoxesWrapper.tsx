@@ -6,6 +6,10 @@ interface IBoundingBoxesWrapperProps{
     regions: IRegions[]
 }
 
+
+//TODO
+//CREATE DISTANCE BETWEEN left and right
+
 export const BoundingBoxesWrapper: React.FC<IBoundingBoxesWrapperProps> = ({regions}) => {
 
     const boundingBoxes = regions.map((region:IRegions, idx:number) =>{

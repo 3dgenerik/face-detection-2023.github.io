@@ -16,7 +16,8 @@ const svgVariants = {
         transition: {
             duration: .6,
             type:"spring",
-            stiffness:200
+            stiffness:200,
+            delay:.2
         }
     }
 }

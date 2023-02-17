@@ -4,6 +4,7 @@ import imageAndInfoHandlerReducer from '../features/imageAndInfoHandler/imageAnd
 import getFaceDetectionInfoReducer from '../features/buttonForm/button.slice'
 import optionsReducer from '../features/options/options.slice'
 import faceDetectionNumPopupReducer from '../features/faceDetectionNumPopup/optionDetectionNumPopup.slice'
+import routeReducer from '../features/routes/routes.slice'
 import createSagaMiddleware from '@redux-saga/core'
 import rootSaga from '../saga/saga'
 
@@ -15,7 +16,8 @@ export const store = configureStore({
         imgError: imageAndInfoHandlerReducer,
         faceDetectionInfo: getFaceDetectionInfoReducer,
         faceDetectionNumPopupBool: faceDetectionNumPopupReducer,
-        option: optionsReducer
+        option: optionsReducer,
+        route: routeReducer
     },
     middleware: (defaultMiddleware) => defaultMiddleware().concat(saga)
 })
