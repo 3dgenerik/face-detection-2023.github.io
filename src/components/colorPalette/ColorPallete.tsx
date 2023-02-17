@@ -9,8 +9,8 @@ interface IColorPalleteProps{
 export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
     const getColors = colors.map((color:IColors, idx:number) => {
         return (
-            <div className = 'd-flex align-items-center justify-content-between'>
-                <div key = {idx}
+            <div key = {idx} className = 'd-flex align-items-center justify-content-between'>
+                <div 
                     className=' bg-light p-2 rounded-3 border border-secondary border-opacity-10 d-flex align-items-center w-100'>
                     <div 
                         style = {{

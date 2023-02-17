@@ -10,9 +10,9 @@ export const Signin: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const onSubmitClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
+    const onSubmitClick = (e: React.MouseEvent<HTMLButtonElement | HTMLSpanElement, MouseEvent>, route: string) =>{
         e.preventDefault()
-        dispatch(changeRoute("home"))
+        dispatch(changeRoute(route))
     }
 
     return (
@@ -36,8 +36,8 @@ export const Signin: React.FC = () => {
                         </InputGroup>
                     </div>
                     
-                    <button type="submit" onClick={(e)=>{onSubmitClick(e)}} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaSignInAlt className = 'me-2' color='#fff'/>Sign in</button>
-                    <div style = {{fontSize:'.8rem'}} className='mt-3 text-center'>Don't have an account? <span className = "text-primary fw-bold">Register now</span></div>
+                    <button type="submit" onClick={(e)=>onSubmitClick(e, "home")} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaSignInAlt className = 'me-2' color='#fff'/>Sign in</button>
+                    <div style = {{fontSize:'.8rem'}} className='mt-3 text-center'>Don't have an account? <span onClick={(e)=>onSubmitClick(e, "registration")} className = "text-primary fw-bold">Register now</span></div>
                 </form>
             </div>
         </>

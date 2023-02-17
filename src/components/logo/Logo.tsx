@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Tilt from 'react-parallax-tilt'
-import {motion} from 'framer-motion'
 import { GiBrain } from "react-icons/gi";
+import {motion} from 'framer-motion'
 
 
 const svgVariants = {
