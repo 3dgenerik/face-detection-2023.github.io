@@ -43,8 +43,12 @@ export const OptionButton: React.FC<IOptionButton> = ({btnName}) => {
         return <div
                     key = {idx}
                     onClick={(e) => onOptionChange(e, btn.constant)}
-                    style={{ backgroundColor: btn.constant===buttonState ? '#0088ff' : '#eee', transition:'all .3s cubic-bezier(.36,.07,.19,.97)', paddingRight: btn.constant===buttonState ? '50px' : '0px'}}
-                    className={`d-flex align-items-center py-1 rounded-3 ${btn.constant===buttonState ? 'text-light' : 'text-dark' }`} role="button" title = {btn.constant}>
+                    style={{
+                        backgroundColor: btn.constant===buttonState ? '#eee' : '#fff',
+                        // border: btn.constant===buttonState ? '1px solid #fff' : '1px solid rgba(0,0,0,.01)',
+                        transition:'all .3s cubic-bezier(.36,.07,.19,.97)',
+                        paddingRight: btn.constant===buttonState ? '50px' : '0px'}}
+                    className={`d-flex align-items-center py-1 rounded-3 text-dark`} role="button" title = {btn.constant}>
                     <div style = {{backgroundColor:'#fff'}} className=' border rounded-2 p-1 mx-1'>
                         {btn.icon}
                     </div>

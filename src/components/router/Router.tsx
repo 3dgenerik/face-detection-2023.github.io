@@ -10,17 +10,17 @@ import { Registration } from '../../features/registration/Registration';
 import { SigninAndRegistrationWrapper } from '../../layouts/SigninAndRegistrationWrapper.layout';
 import { routers } from '../../config';
 import { Navigate } from 'react-router-dom';
-
+import { NotFound } from './NotFound';
 
 import {
   createBrowserRouter,
   createHashRouter,
   createRoutesFromElements,
-  Route,
-  Routes
+  Route
 } from "react-router-dom"
 
-export const router =   createHashRouter(
+//createHashRouter will fix the problem with server subfolder (homepage from package.json)
+export const router = createHashRouter(
     //first argument
     createRoutesFromElements(
       <Route>
@@ -41,6 +41,7 @@ export const router =   createHashRouter(
             <InputForm/>
           </>
         }/>
+        <Route path='*' element={<NotFound/>}/>
       </Route>
 
     ),
