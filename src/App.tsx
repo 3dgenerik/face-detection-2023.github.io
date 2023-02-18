@@ -1,62 +1,9 @@
-import React, {useState} from 'react';
-import { Navigation } from './components/navigation/Navigation';
-import { Logo } from './components/logo/Logo';
-import { SpaceBetween } from './components/layouts/spaceBetween';
-import { InputForm } from './features/inputForm/InputForm';
-import { Rank } from './components/rank/Rank';
-import { Options } from './features/options/Options';
-import { useAppSelector } from './redux/hooks';
-
-import { Signin } from './features/signin/Signin';
-import { rootState } from './redux/store';
-import { Registration } from './features/registration/Registration';
-import { SigninAndRegistrationWrapper } from './layouts/SigninAndRegistrationWrapper.layout';
-import { routers } from './constants';
+import React from 'react';
 import './app.scss'
+import {RouterProvider} from "react-router-dom"
+import { router } from './router/Router';
 
-
-import {
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route
-} from "react-router-dom"
-
-//React Router in Depth #2 - React Router Basics
-
-const router = createBrowserRouter(
-  //first argument
-  createRoutesFromElements(
-    <Route>
-
-      <Route path='/' element={
-        <>
-          <SpaceBetween>
-            <Logo/>
-            <Rank/>
-            <Navigation/>
-          </SpaceBetween>
-          <Options/>
-          <InputForm/>
-        </>
-      }/>
-
-      <Route element={<SigninAndRegistrationWrapper/>}>
-        <Route index path='/signin' element={<Signin/>}/>
-        <Route path='/registration' element={<Registration/>}/>
-      </Route>
-
-    </Route>
-  
-  ),
-  //second argument
-  {
-    basename: routers.PROJECT_NAME
-  }
-)
-
-
-function App() {
+const App = () => {
   // const {route} = useAppSelector((state:rootState) => state.route)
   return (
       <>
@@ -64,6 +11,5 @@ function App() {
       </>
       )
   }
-  
   export default App;
   
