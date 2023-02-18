@@ -1,0 +1,18 @@
+@import '../app';
+
+nav{
+    a{
+        color:$secondary;
+        padding: 6px 20px 6px 20px;
+        border-radius: 5px;
+        transition: all .5s ease;
+        text-decoration: none;
+        
+    }
+    a.active{
+        color:white;
+        background-color:$primary;
+        transition: all .5s ease;
+
+    }
+}

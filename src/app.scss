@@ -1,0 +1,15 @@
+@import "../node_modules/bootstrap/scss/_functions";
+@import "../node_modules/bootstrap/scss/_variables";
+
+$primary: #1166ff;
+$secondary: #555577;
+$custom: #00ff00;
+
+$my-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "custom": $custom
+);
+
+$theme-colors: map-merge($theme-colors, $my-colors);
+@import "../node_modules/bootstrap/scss/bootstrap";

@@ -6,14 +6,16 @@ import { FaUserPlus } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { useAppDispatch } from '../../redux/hooks'
 import { changeRoute } from '../routes/routes.slice'
+import { useNavigate } from 'react-router-dom'
 
 export const Registration: React.FC = () => {
-
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
-    const onSubmitClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
+    const onSubmitClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, route:string) =>{
         e.preventDefault()
-        dispatch(changeRoute("signin"))
+        // dispatch(changeRoute("signin"))
+        navigate(route)
     }
 
     return (
@@ -46,7 +48,7 @@ export const Registration: React.FC = () => {
                         </InputGroup>
                     </div>
                     
-                    <button type="submit" onClick={(e)=>{onSubmitClick(e)}} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaUserPlus className = 'me-2' color='#fff'/>Registration</button>
+                    <button type="submit" onClick={(e)=>{onSubmitClick(e, '/')}} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaUserPlus className = 'me-2' color='#fff'/>Registration</button>
                 </form>
             </div>
         </>
