@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/face-detection-2023.github.io/static/css/main.8017c9e2.css",
-    "main.js": "/face-detection-2023.github.io/static/js/main.278efab3.js",
+    "main.css": "/face-detection-2023.github.io/static/css/main.8df7b08f.css",
+    "main.js": "/face-detection-2023.github.io/static/js/main.404dc55a.js",
+    "static/media/broken-link-svgrepo-com.svg": "/face-detection-2023.github.io/static/media/broken-link-svgrepo-com.4bce95704500923df8d440443693873f.svg",
     "index.html": "/face-detection-2023.github.io/index.html",
-    "main.8017c9e2.css.map": "/face-detection-2023.github.io/static/css/main.8017c9e2.css.map",
-    "main.278efab3.js.map": "/face-detection-2023.github.io/static/js/main.278efab3.js.map"
+    "main.8df7b08f.css.map": "/face-detection-2023.github.io/static/css/main.8df7b08f.css.map",
+    "main.404dc55a.js.map": "/face-detection-2023.github.io/static/js/main.404dc55a.js.map"
   },
   "entrypoints": [
-    "static/css/main.8017c9e2.css",
-    "static/js/main.278efab3.js"
+    "static/css/main.8df7b08f.css",
+    "static/js/main.404dc55a.js"
   ]
 }
