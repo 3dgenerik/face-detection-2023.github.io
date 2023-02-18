@@ -1,14 +1,10 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { changeDetectOption } from './options.slice'
 import { useAppDispatch } from '../../redux/hooks'
 import { constants } from '../../config'
 import { clearRegions } from '../buttonForm/button.slice'
 import { TbFaceId as Face } from "react-icons/tb";
 import { IoMdColorWand as Color } from "react-icons/io";
-import { IconType } from 'react-icons/lib'
-
-//<OptionButton btnName='Face detection' optionName={constants.FACE_DETECTION} detectName = "face"><TbFaceId size={30} color="#0088ff"/></OptionButton>
-//<OptionButton btnName='Color detection' optionName={constants.COLOR_DETECTION} detectName = "color"><IoMdColorWand size={30} color="#0088ff"/></OptionButton>
 
 
 interface IOptionButton{
@@ -36,7 +32,6 @@ export const OptionButton: React.FC<IOptionButton> = ({btnName}) => {
         dispatch(clearRegions())
 
     }
-    // console.log(buttonState);
 
     const createButton = buttons.map((btn:IButtons, idx:number) => {
         //REFACTOR
@@ -45,14 +40,13 @@ export const OptionButton: React.FC<IOptionButton> = ({btnName}) => {
                     onClick={(e) => onOptionChange(e, btn.constant)}
                     style={{
                         backgroundColor: btn.constant===buttonState ? '#eee' : '#fff',
-                        // border: btn.constant===buttonState ? '1px solid #fff' : '1px solid rgba(0,0,0,.01)',
                         transition:'all .3s cubic-bezier(.36,.07,.19,.97)',
                         paddingRight: btn.constant===buttonState ? '50px' : '0px'}}
                     className={`d-flex align-items-center py-1 rounded-3 text-dark`} role="button" title = {btn.constant}>
                     <div style = {{backgroundColor:'#fff'}} className=' border rounded-2 p-1 mx-1'>
                         {btn.icon}
                     </div>
-                    <div style = {{fontSize:'.8rem'}} className = 'ps-2 pe-5 fw-bold'>{btn.constant.toLowerCase().split("_").join(" ")}</div>
+                    <div style = {{fontSize:'.8rem'}} className = 'ps-2 pe-2 pe-sm-5 fw-bold'>{btn.constant.toLowerCase().split("_").join(" ")}</div>
                 </div>    
     })
 

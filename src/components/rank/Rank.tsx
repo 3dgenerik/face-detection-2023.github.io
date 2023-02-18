@@ -26,7 +26,7 @@ export const Rank: React.FC = () => {
             initial="initial"
             animate="animate"
             className="text-center">
-            <div className='text-secondary display-5'>
+            <div className='text-secondary display-5 p-2'>
                 Hi <span className = "">Jovica</span>, your current rank is <span className='fw-bold text-primary'>#5</span>
             </div>
         </motion.div>

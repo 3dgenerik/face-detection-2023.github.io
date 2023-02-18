@@ -57,7 +57,7 @@ export const InputForm: React.FC  = () => {
             animate="animate"
             style={{maxWidth:'1000px', margin: 'auto', marginTop: "0px"}}
             className = 'p-3'>
-            <InputGroup className="mb-5 mb-sm-3 mt-3 ">
+            <InputGroup className="mb-4 mb-sm-3 mt-3 ">
                 <InputGroup.Text className = 'p-3 p-sm-3' id="basic-addon1"><BsFillImageFill /></InputGroup.Text>
                 <Form.Control
                 className = 'text-dark text-opacity-50'

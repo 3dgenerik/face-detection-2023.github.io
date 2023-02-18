@@ -5,11 +5,6 @@ import { router } from './components/router/Router';
 
 const App = () => {
 
-  // useEffect(()=>{
-  //   navigate('/signin')
-  // }, [])
-
-  // const {route} = useAppSelector((state:rootState) => state.route)
   return (
       <>
         <RouterProvider router={router}/>

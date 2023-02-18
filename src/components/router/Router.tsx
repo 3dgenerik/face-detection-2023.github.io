@@ -20,8 +20,8 @@ import {
 } from "react-router-dom"
 
 //createHashRouter will fix the problem with server subfolder (homepage from package.json)
+
 export const router = createHashRouter(
-    //first argument
     createRoutesFromElements(
       <Route>
         <Route index path='/' element={<Navigate to='signin'/>}/>
@@ -45,7 +45,6 @@ export const router = createHashRouter(
       </Route>
 
     ),
-    //second argument
     {
       basename: routers.PROJECT_NAME,
     }
