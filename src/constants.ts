@@ -31,5 +31,9 @@ export const clarifai: IClarifai = {
 
 export enum constants{
     FACE_DETECTION =  "FACE_DETECTION",
-    COLOR_DETECTION = "COLOR_DETECTION"
+    COLOR_DETECTION = "COLOR_DETECTION",
+}
+
+export enum routers{
+    PROJECT_NAME = "/face-detection-2023.github.io/"
 }

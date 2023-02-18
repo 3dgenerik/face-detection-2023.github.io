@@ -11,6 +11,7 @@ import { Signin } from './features/signin/Signin';
 import { rootState } from './redux/store';
 import { Registration } from './features/registration/Registration';
 import { SigninAndRegistrationWrapper } from './layouts/SigninAndRegistrationWrapper.layout';
+import { routers } from './constants';
 import './app.scss'
 
 
@@ -24,6 +25,7 @@ import {
 //React Router in Depth #2 - React Router Basics
 
 const router = createBrowserRouter(
+  //first argument
   createRoutesFromElements(
     <Route>
 
@@ -45,7 +47,12 @@ const router = createBrowserRouter(
       </Route>
 
     </Route>
-  )
+  
+  ),
+  //second argument
+  {
+    basename: routers.PROJECT_NAME
+  }
 )
 
 
