@@ -1,9 +1,14 @@
 import React from 'react';
 import './app.scss'
 import {RouterProvider} from "react-router-dom"
-import { router } from './router/Router';
+import { router } from './components/router/Router';
 
 const App = () => {
+
+  // useEffect(()=>{
+  //   navigate('/signin')
+  // }, [])
+
   // const {route} = useAppSelector((state:rootState) => state.route)
   return (
       <>

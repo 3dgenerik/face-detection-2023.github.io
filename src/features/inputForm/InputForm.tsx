@@ -11,7 +11,7 @@ import { rootState } from '../../redux/store';
 import { clearRegions } from '../buttonForm/button.slice';
 import { OptionDetectionNumPopup } from '../faceDetectionNumPopup/OptionDetectionNumPopup';
 import { setIsPopedUp } from '../faceDetectionNumPopup/optionDetectionNumPopup.slice';
-import { constants } from '../../constants';
+import { constants } from '../../config';
 import {motion} from 'framer-motion'
 
 

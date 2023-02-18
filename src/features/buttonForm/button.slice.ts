@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {IData } from "./button.interface";
-import { constants } from "../../constants";
+import { constants } from "../../config";
 import { IRegions, IColors } from "./button.interface";
 
 

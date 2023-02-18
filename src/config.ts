@@ -35,5 +35,7 @@ export enum constants{
 }
 
 export enum routers{
-    PROJECT_NAME = "/face-detection-2023.github.io/"
+    //for github deploy
+    // PROJECT_NAME = "/face-detection-2023.github.io"
+    PROJECT_NAME = "/"
 }

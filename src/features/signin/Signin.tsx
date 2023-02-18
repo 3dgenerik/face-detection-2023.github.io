@@ -38,7 +38,7 @@ export const Signin: React.FC = () => {
                         </InputGroup>
                     </div>
                     
-                    <button type="submit" onClick={(e)=>onSubmitClick(e, "/")} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaSignInAlt className = 'me-2' color='#fff'/>Sign in</button>
+                    <button type="submit" onClick={(e)=>onSubmitClick(e, "/home")} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaSignInAlt className = 'me-2' color='#fff'/>Sign in</button>
                     <div style = {{fontSize:'.8rem'}} className='mt-3 text-center'>Don't have an account? <span onClick={(e)=>onSubmitClick(e, "/registration")} className = "text-primary fw-bold" role="button">Register now</span></div>
                 </form>
             </div>

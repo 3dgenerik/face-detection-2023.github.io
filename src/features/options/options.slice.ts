@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { constants } from "../../constants";
+import { constants } from "../../config";
 
 interface IInitialState {
     detectionOption: constants

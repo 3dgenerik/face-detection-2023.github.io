@@ -4,7 +4,7 @@ import { rootState } from "../../redux/store";
 import { setImageError } from "./imageAndInfoHandler.slice";
 import { BoundingBoxesWrapper } from "../../components/boundingBox/BoundingBoxesWrapper";
 import { IRegions } from "../buttonForm/button.interface";
-import { constants } from "../../constants";
+import { constants } from "../../config";
 import { ColorPallete } from "../../components/colorPalette/ColorPallete";
 
 interface IImageAndInfoHandler{

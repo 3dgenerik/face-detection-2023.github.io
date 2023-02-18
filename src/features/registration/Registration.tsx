@@ -48,7 +48,7 @@ export const Registration: React.FC = () => {
                         </InputGroup>
                     </div>
                     
-                    <button type="submit" onClick={(e)=>{onSubmitClick(e, '/')}} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaUserPlus className = 'me-2' color='#fff'/>Registration</button>
+                    <button type="submit" onClick={(e)=>{onSubmitClick(e, '/home')}} style = {{padding:'13px'}} className="btn btn-primary mt-5 w-100 d-flex align-items-center justify-content-center"><FaUserPlus className = 'me-2' color='#fff'/>Registration</button>
                 </form>
             </div>
         </>

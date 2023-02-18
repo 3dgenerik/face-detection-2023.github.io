@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { changeDetectOption } from './options.slice'
 import { useAppDispatch } from '../../redux/hooks'
-import { constants } from '../../constants'
+import { constants } from '../../config'
 import { clearRegions } from '../buttonForm/button.slice'
 import { TbFaceId as Face } from "react-icons/tb";
 import { IoMdColorWand as Color } from "react-icons/io";

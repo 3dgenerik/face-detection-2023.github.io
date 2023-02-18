@@ -1,10 +1,10 @@
 import {takeEvery, all, call, put} from 'redux-saga/effects'
 import { getFaceDetectionInfoPending, getFaceDetectionInfoFullfiled, getFaceDetectionInfoRejected } from '../features/buttonForm/button.slice'
 import { IFaceDetectionData } from '../features/buttonForm/button.interface';
-import { clarifai } from '../constants';
+import { clarifai } from '../config';
 import { fetchDetectionData } from './fetchDetectionData';
 import { IDetectionInput } from '../features/buttonForm/button.slice';
-import { constants } from '../constants';
+import { constants } from '../config';
 
 
 interface IResponseGenerator {

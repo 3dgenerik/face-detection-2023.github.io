@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import {motion} from 'framer-motion'
 
 const variant = {
@@ -21,14 +21,17 @@ interface ISpaceBetweenProps{
 }
 
 export const SpaceBetween: React.FC<ISpaceBetweenProps> = ({children}) =>{
+
     return (
-        <motion.div
-            variants={variant}
-            initial="initial"
-            animate="animate"
-            style = {{marginTop:'0px'}}
-            className='d-flex align-items-center justify-content-between p-2 border-bottom shadow bg-dark bg-gradient'>
-            {children}
-        </motion.div>
+        <>
+            <motion.div
+                variants={variant}
+                initial="initial"
+                animate="animate"
+                style = {{marginTop:'0px'}}
+                className='d-flex align-items-center justify-content-between p-2 border-bottom shadow bg-dark bg-gradient'>
+                {children}
+            </motion.div>
+        </>
     )
 }
