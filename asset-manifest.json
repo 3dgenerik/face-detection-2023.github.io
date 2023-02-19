@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/face-detection-2023.github.io/static/css/main.3f89b5f6.css",
-    "main.js": "/face-detection-2023.github.io/static/js/main.f1840bbe.js",
+    "main.js": "/face-detection-2023.github.io/static/js/main.3924f76a.js",
     "static/media/broken-link-svgrepo-com.svg": "/face-detection-2023.github.io/static/media/broken-link-svgrepo-com.4bce95704500923df8d440443693873f.svg",
     "index.html": "/face-detection-2023.github.io/index.html",
     "main.3f89b5f6.css.map": "/face-detection-2023.github.io/static/css/main.3f89b5f6.css.map",
-    "main.f1840bbe.js.map": "/face-detection-2023.github.io/static/js/main.f1840bbe.js.map"
+    "main.3924f76a.js.map": "/face-detection-2023.github.io/static/js/main.3924f76a.js.map"
   },
   "entrypoints": [
     "static/css/main.3f89b5f6.css",
-    "static/js/main.f1840bbe.js"
+    "static/js/main.3924f76a.js"
   ]
 }
