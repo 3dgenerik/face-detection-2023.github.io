@@ -38,8 +38,8 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
     return (
         <div
         style = {{
-            position:'absolute',
-            top:'0px',
+            // position:'absolute',
+            // top:'0px',
             height:'100%',
             width:'100%',
             display:'flex',
@@ -52,12 +52,12 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
             <div style = {{
                 backgroundColor:'white',
             }}
-            className= 'm-3 p-2 p-sm-3 rounded-4 border shadow'
+            className= 'mt-4 p-2 p-sm-3 rounded-2 border w-100'
             >
                 <div style = {{
                     display:'flex',
                     gap:'10px',
-                    flexDirection:'column'
+                    flexDirection:'column',
                     // gridTemplateColumns:`repeat(${colors.length}, 1fr)`
                 }}
                 className="gap-2 gap-sm-3"

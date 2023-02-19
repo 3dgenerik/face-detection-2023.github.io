@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { rootState } from "../../redux/store";
 import { setImageError } from "./imageAndInfoHandler.slice";
 import { BoundingBoxesWrapper } from "../../components/boundingBox/BoundingBoxesWrapper";
-import { IRegions } from "../buttonForm/button.interface";
 import { constants } from "../../config";
 import { ColorPallete } from "../../components/colorPalette/ColorPallete";
 
@@ -14,7 +13,7 @@ interface IImageAndInfoHandler{
 export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
     const {isLoaded, optionSelection, error} = useAppSelector((state:rootState) => state.faceDetectionInfo)
     const {detectionOption} = useAppSelector((state:rootState) => state.option)
-
+    
     const {imgLoadingError} = useAppSelector((state:rootState) => state.imgError)
 
     const dispatch = useAppDispatch()
@@ -25,7 +24,7 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
     
     return (
         <div>
-            <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} d-flex justify-content-center align-items-center bg-opacity-25 p-3 mt-2 mt-sm-4 shadow-sm border rounded-2`}>
+            <div className = {`${imgLoadingError ? 'bg-danger border-danger' : 'bg-light'} d-flex justify-content-center align-items-center bg-opacity-25 p-2 p-sm-3 mt-2 mt-sm-4 shadow-sm border rounded-2`}>
                 {
                     url
                         ?
@@ -36,7 +35,7 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
                                 <div className='text-secondary fw-bold'>{`${detectionOption===constants.FACE_DETECTION ? '...finding region(s)' : '...finding color(s)'}`}</div>
                                 :
                                 <>
-                                    <div style = {{position:'relative'}}>
+                                    <div style = {{position:'relative'}} className='rounded-2 overflow-hidden'>
                                         <img
                                             className='w-100' 
                                             src = {url}
@@ -47,7 +46,7 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
                                             detectionOption===constants.FACE_DETECTION && optionSelection.regions && <BoundingBoxesWrapper regions={optionSelection.regions}/>        
                                         }
                                         {
-                                            detectionOption===constants.COLOR_DETECTION && optionSelection.colors && <ColorPallete colors={optionSelection.colors}/>
+                                            detectionOption===constants.COLOR_DETECTION && optionSelection.colors && optionSelection.colors.length > 0 && <ColorPallete colors={optionSelection.colors}/>
                                         }
                                     </div>
                                 </>
