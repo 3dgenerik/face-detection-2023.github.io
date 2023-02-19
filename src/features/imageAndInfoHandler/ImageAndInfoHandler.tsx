@@ -35,13 +35,15 @@ export const ImageAndInfoHandler: React.FC<IImageAndInfoHandler> = ({url}) => {
                                 <div className='text-secondary fw-bold'>{`${detectionOption===constants.FACE_DETECTION ? '...finding region(s)' : '...finding color(s)'}`}</div>
                                 :
                                 <>
-                                    <div style = {{position:'relative'}} className='rounded-2 overflow-hidden'>
-                                        <img
-                                            className='w-100' 
-                                            src = {url}
-                                            alt='image' 
-                                            onError={imageOnErrorHandler}
-                                        />
+                                    <div style = {{position:'relative'}} className=''>
+                                        <div className = 'rounded-2 overflow-hidden shadow-sm'>
+                                            <img
+                                                className='w-100' 
+                                                src = {url}
+                                                alt='image' 
+                                                onError={imageOnErrorHandler}
+                                            />
+                                        </div>
                                         {
                                             detectionOption===constants.FACE_DETECTION && optionSelection.regions && <BoundingBoxesWrapper regions={optionSelection.regions}/>        
                                         }

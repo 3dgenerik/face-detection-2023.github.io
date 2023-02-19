@@ -52,7 +52,7 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
             <div style = {{
                 backgroundColor:'white',
             }}
-            className= 'mt-4 p-2 p-sm-3 rounded-2 border w-100'
+            className= 'mt-4 p-2 p-sm-3 rounded-2 border w-100 shadow-sm'
             >
                 <div style = {{
                     display:'flex',
