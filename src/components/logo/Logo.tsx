@@ -31,7 +31,7 @@ export const Logo: React.FC = () => {
                 variants={svgVariants}
                 initial="initial"
                 animate="animate"
-                style = {{width:'60px', height:'70px'}}
+                style = {{width:'50px', height:'50px'}}
                 >
                 {/* <img className = 'mw-100' src="assets/brain-svgrepo-com.svg" alt = 'brain'/> */}
                 <GiBrain className="w-100 h-100 text-light"/>

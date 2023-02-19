@@ -21,7 +21,7 @@ export const Registration: React.FC = () => {
     return (
         <>
             <div style = {{maxWidth:'600px'}} className = "container">
-                <form className = " border m-5 p-4 rounded-3 shadow">
+                <form className = " border mx-3 my-5 p-4 rounded-3 shadow">
                     <div className = "mb-4 text-primary display-5">Registration</div>
 
                     <div className="form-group">         

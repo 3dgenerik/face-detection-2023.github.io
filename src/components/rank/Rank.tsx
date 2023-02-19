@@ -9,7 +9,7 @@ const variants = {
 
     animate: {
         opacity:1,
-        marginTop:30,
+        marginTop:25,
         transition: {
             duration: .3,
             type:'tween',
@@ -21,12 +21,12 @@ const variants = {
 export const Rank: React.FC = () => {
     return(
         <motion.div
-            style = {{marginTop:'30px'}}
+            style = {{marginTop:'25px'}}
             variants={variants}
             initial="initial"
             animate="animate"
             className="text-center">
-            <div className='text-secondary display-5 p-2'>
+            <div className='text-secondary display-5'>
                 Hi <span className = "">Jovica</span>, your current rank is <span className='fw-bold text-primary'>#5</span>
             </div>
         </motion.div>
