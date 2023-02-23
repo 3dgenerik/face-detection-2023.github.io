@@ -41,6 +41,7 @@ export const router = createHashRouter(
             <InputForm/>
           </>
         }/>
+
         <Route path='*' element={<NotFound/>}/>
       </Route>
 

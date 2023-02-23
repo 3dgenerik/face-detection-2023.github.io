@@ -23,6 +23,21 @@ const variants = {
     }
 }
 
+const copyVariant = {
+    initial: {
+    },
+    
+    animate: {
+
+        transition: {
+            duration: .6,
+            type:"spring",
+            stiffness:200,
+        }
+    }
+    
+}
+
 interface IColorPalleteProps{
     colors: IColors[]
 }
@@ -30,9 +45,11 @@ interface IColorPalleteProps{
 export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
     const getColors = colors.map((color:IColors, idx:number) => {
         return (
-            <div key = {idx} className = 'd-flex align-items-center justify-content-between'>
+            <li key = {idx} className = 'bg-light d-flex align-items-center justify-content-between list-group-item'>
+
+
                 <div 
-                    className=' bg-light p-2 rounded-3 border border-secondary border-opacity-10 d-flex align-items-center w-100'>
+                    className='d-flex align-items-center w-100'>
                     <div 
                         style = {{
                             backgroundColor:`${color.raw_hex}`,
@@ -40,19 +57,29 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
                             width: '30px',
 
                         }}
-                        className='text-light rounded-2 border'
+                        className='text-light rounded-1'
                         ></div>
                         <div
                             style={{fontSize:'.8rem'}}
                             className='ms-4 fw-bold'>{color.w3c.name} <span className = 'text-secondary'>({color.raw_hex})</span>
                         </div>
                 </div>
-                <div className=''>
 
+
+
+                <motion.div
+                    variants={copyVariant}
+                    initial='initial'
+                    animate='animate'
+                    whileHover={{scale:1.1}}
+                    whileTap={{scale:0.75}}
+                    className=''>
+                    
                     <AiFillCopy
-                        className='btn btn-outline-light ms-3 border p-3 rounded-3' size = {48} color={"#777"}/>
-                </div>
-            </div>
+                        style={{backgroundColor:'#fff'}}
+                        className='btn ms-3 p-3 rounded-3' size = {48} color={"#777"}/>
+                </motion.div>
+            </li>
         )
     })
 
@@ -88,7 +115,7 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
                         <motion.div
                             className='bg-light p-2 border rounded-2'
                             
-                            >Palette created
+                            >Get your color palette
                         </motion.div>
                         <SlArrowDown size={20} color='#2266ff'/>
                 </HashLink>
@@ -98,15 +125,12 @@ export const ColorPallete: React.FC<IColorPalleteProps> = ({colors})=>{
                 backgroundColor:'white',
             }}
             id='palette'
-            className= 'mt-4 p-2 p-sm-3 rounded-2 border w-100 shadow-sm'
+            className= 'mt-4 w-100 shadow-sm'
             >
                 <div style = {{
-                    display:'flex',
-                    gap:'10px',
-                    flexDirection:'column',
                     // gridTemplateColumns:`repeat(${colors.length}, 1fr)`
                 }}
-                className="gap-2 gap-sm-3"
+                className="list-group"
                 >
                     {getColors}
                 </div>
